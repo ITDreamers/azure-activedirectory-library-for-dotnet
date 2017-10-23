@@ -23,13 +23,30 @@ namespace D365CrmConsoleApp
         }
     }
 
-    class Program
+    class ProgramEnvExtender
+    {
+        public static void ExportEnvConfig()
+        {
+        }
+
+        public static void ImportEnvConfig()
+        {
+        }
+
+        public static T GetEnvConfig<T>(string[] args) where T : EnvConfig, new()
+        {
+            var variablesGroupKey = args[0];
+            return new T { VariablesGroupKey = variablesGroupKey };
+        }
+    }
+
+    class Program : ProgramEnvExtender
     {
         public static void Main(string[] args)
         {
             try
             {
-                var envConfig = new SPIntegrationEnvConfig("IT_DREAMERS");
+                var envConfig = GetEnvConfig<SPIntegrationEnvConfig>(args);
 
                 var activity = new GetSPListInfoActivity();
                 activity.RunBusinessLogic(new ConsoleLogger(), envConfig.SPAuthConfig);

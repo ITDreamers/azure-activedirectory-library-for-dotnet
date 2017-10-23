@@ -9,17 +9,22 @@ namespace ITDreamers.XRM.ConsoleTooling
 {
     public class EnvConfig
     {
-        protected string _variablesGroupKey = "YOUR_ORG";
         protected IDictionary _envVariables = Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User);
+
+        public EnvConfig()
+        {
+            
+        }
 
         public EnvConfig(string variablesGroupKey)
         {
-            _variablesGroupKey = variablesGroupKey;
+            VariablesGroupKey = variablesGroupKey;
         }
 
-        public string D365OrgUrl => _envVariables[$"{_variablesGroupKey}_D365_URL"].ToString();
-        public string D365OrgLgn => _envVariables[$"{_variablesGroupKey}_D365_LGN"].ToString();
-        public string D365OrgPswd => _envVariables[$"{_variablesGroupKey}_D365_PSWD"].ToString();
+        public string VariablesGroupKey { get; set; }
+        public string D365OrgUrl => _envVariables[$"{VariablesGroupKey}_D365_URL"].ToString();
+        public string D365OrgLgn => _envVariables[$"{VariablesGroupKey}_D365_LGN"].ToString();
+        public string D365OrgPswd => _envVariables[$"{VariablesGroupKey}_D365_PSWD"].ToString();
 
         public string CrmConnectionString
         {
