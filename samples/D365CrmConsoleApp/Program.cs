@@ -48,8 +48,10 @@ namespace D365CrmConsoleApp
             {
                 var envConfig = GetEnvConfig<SPIntegrationEnvConfig>(args);
 
+                var authConfig = new AuthConfig(envConfig.Tenant, new Uri(envConfig.SharePointUrl), envConfig.ClientId,
+                    envConfig.SharePointLgn, envConfig.SharePointPswd);
                 var activity = new GetSPListInfoActivity();
-                activity.RunBusinessLogic(new ConsoleLogger(), envConfig.SPAuthConfig);
+                activity.RunBusinessLogic(new ConsoleLogger(), authConfig);
             }
             catch (Exception ex)
             {

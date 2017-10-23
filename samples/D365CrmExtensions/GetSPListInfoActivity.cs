@@ -88,8 +88,14 @@ namespace D365CrmExtensions
             IOrganizationService service = serviceFactory.CreateOrganizationService(null);
             try
             {
-                var authConfigSource = new WfInputsAuthConfigSource(this, context);
-                var authConfig = authConfigSource.GetAuthConfig();
+                var tenant = Tenant.Get<string>(context);
+                var clientId = ClientId.Get<Guid>(context);
+                var sharePointServerUri = new Uri(SharePointServerUri.Get<string>(context));
+
+                var userName = UserName.Get<string>(context);
+                var userPassword = UserPassword.Get<string>(context);
+                var credentials = new UserCredential(userName, userPassword);
+                var authConfig = new AuthConfig(tenant, sharePointServerUri, clientId, credentials);
 
                 RunBusinessLogic(tracingService, authConfig);
             }

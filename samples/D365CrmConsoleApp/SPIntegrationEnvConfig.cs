@@ -18,16 +18,15 @@ namespace ITDreamers.XRM.ConsoleTooling
         {
         }
 
-        public AuthConfig SPAuthConfig => new AuthConfig(Tenant, SharePointServerUri, ClientId, SPUserCredentials);
-
         public string Tenant => _envVariables[$"{VariablesGroupKey}_Tenant"].ToString();
-
         public Guid ClientId => new Guid(_envVariables[$"{VariablesGroupKey}_ClientId"].ToString());
 
-        public Uri SharePointServerUri => new Uri(_envVariables[$"{VariablesGroupKey}_SPServerUri"].ToString());
+        public string SharePointUrl => _envVariables[$"{VariablesGroupKey}_SP_URL"].ToString();
+        public string SharePointLgn => _envVariables[$"{VariablesGroupKey}_SP_LGN"].ToString();
+        public string SharePointPswd => _envVariables[$"{VariablesGroupKey}_SP_PSWD"].ToString();
 
-        public UserCredential SPUserCredentials => new UserCredential(_envVariables[$"{VariablesGroupKey}_SPUserName"].ToString(),
-            _envVariables[$"{VariablesGroupKey}_SPUserPassword"].ToString());
+        //public UserCredential SPUserCredentials => new UserCredential(_envVariables[$"{VariablesGroupKey}_SPUserName"].ToString(),
+        //    _envVariables[$"{VariablesGroupKey}_SPUserPassword"].ToString());
 
     }
 }

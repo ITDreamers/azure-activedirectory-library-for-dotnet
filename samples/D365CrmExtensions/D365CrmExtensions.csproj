@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ADAL_NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -32,10 +32,6 @@
   <ItemGroup>
     <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0\lib\net45\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Xrm.Sdk, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CrmSdk.CoreAssemblies.8.2.0\lib\net45\Microsoft.Xrm.Sdk.dll</HintPath>
@@ -67,6 +63,86 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADAL.CommonDesktop\AdalClaimsChallengeException.cs" />
+    <Compile Include="ADAL.CommonDesktop\AdalIdHelper.cs" />
+    <Compile Include="ADAL.Common\AcquireTokenByRefreshTokenHandler.cs" />
+    <Compile Include="ADAL.Common\AcquireTokenHandlerBase.cs" />
+    <Compile Include="ADAL.Common\AcquireTokenInteractiveHandler.cs" />
+    <Compile Include="ADAL.Common\AcquireTokenNonInteractiveHandler.cs" />
+    <Compile Include="ADAL.Common\AcquireTokenSilentHandler.cs" />
+    <Compile Include="ADAL.Common\AdalException.cs" />
+    <Compile Include="ADAL.Common\AdalIdHelper.cs" />
+    <Compile Include="ADAL.Common\AdalServiceException.cs" />
+    <Compile Include="ADAL.Common\AdalSilentTokenAcquisitionException.cs" />
+    <Compile Include="ADAL.Common\AdalUserMismatchException.cs" />
+    <Compile Include="ADAL.Common\AuthenticationContext.cs" />
+    <Compile Include="ADAL.Common\AuthenticationParameters.cs" />
+    <Compile Include="ADAL.Common\AuthenticationResult.cs" />
+    <Compile Include="ADAL.Common\Authenticator.cs" />
+    <Compile Include="ADAL.Common\AuthenticatorTemplate.cs" />
+    <Compile Include="ADAL.Common\AuthenticatorTemplateList.cs" />
+    <Compile Include="ADAL.Common\AuthorizationResult.cs" />
+    <Compile Include="ADAL.Common\Base64UrlEncoder.cs" />
+    <Compile Include="ADAL.Common\CacheQueryData.cs" />
+    <Compile Include="ADAL.Common\CallState.cs" />
+    <Compile Include="ADAL.Common\ClientKey.cs" />
+    <Compile Include="ADAL.Common\ClientMetrics.cs" />
+    <Compile Include="ADAL.Common\CommonAssemblyInfo.cs" />
+    <Compile Include="ADAL.Common\Constants.cs" />
+    <Compile Include="ADAL.Common\DateTimeHelper.cs" />
+    <Compile Include="ADAL.Common\EncodingHelper.cs" />
+    <Compile Include="ADAL.Common\HttpHelper.cs" />
+    <Compile Include="ADAL.Common\HttpWebRequestFactory.cs" />
+    <Compile Include="ADAL.Common\HttpWebRequestWrapper.cs" />
+    <Compile Include="ADAL.Common\HttpWebResponseFactory.cs" />
+    <Compile Include="ADAL.Common\HttpWebResponseWrapper.cs" />
+    <Compile Include="ADAL.Common\IHttpWebRequest.cs" />
+    <Compile Include="ADAL.Common\IHttpWebRequestFactory.cs" />
+    <Compile Include="ADAL.Common\IHttpWebResponse.cs" />
+    <Compile Include="ADAL.Common\IRequestCreationHelper.cs" />
+    <Compile Include="ADAL.Common\Logger.cs" />
+    <Compile Include="ADAL.Common\MexParser.cs" />
+    <Compile Include="ADAL.Common\NetworkPlugin.cs" />
+    <Compile Include="ADAL.Common\OAuth2Response.cs" />
+    <Compile Include="ADAL.Common\OAuthConstants.cs" />
+    <Compile Include="ADAL.Common\PromptBehavior.cs" />
+    <Compile Include="ADAL.Common\RequestCreationHelper.cs" />
+    <Compile Include="ADAL.Common\RequestParameters.cs" />
+    <Compile Include="ADAL.Common\TokenCache.cs" />
+    <Compile Include="ADAL.Common\TokenCacheItem.cs" />
+    <Compile Include="ADAL.Common\TokenCacheKey.cs" />
+    <Compile Include="ADAL.Common\TokenCacheNotificationArgs.cs" />
+    <Compile Include="ADAL.Common\UserAssertion.cs" />
+    <Compile Include="ADAL.Common\UserCredential.cs" />
+    <Compile Include="ADAL.Common\UserIdentifier.cs" />
+    <Compile Include="ADAL.Common\UserInfo.cs" />
+    <Compile Include="ADAL.Common\UserRealmDiscoveryResponse.cs" />
+    <Compile Include="ADAL.Common\WsTrustRequest.cs" />
+    <Compile Include="ADAL.Common\WsTrustResponse.cs" />
+    <Compile Include="ADAL.NET\AcquireTokenByAuthorizationCodeHandler.cs" />
+    <Compile Include="ADAL.NET\AcquireTokenForClientHandler.cs" />
+    <Compile Include="ADAL.NET\AcquireTokenInteractiveHandler.cs" />
+    <Compile Include="ADAL.NET\AcquireTokenOnBehalfHandler.cs" />
+    <Compile Include="ADAL.NET\AdalTrace.cs" />
+    <Compile Include="ADAL.NET\AuthenticationContext.cs" />
+    <Compile Include="ADAL.NET\AuthenticationParameters.cs" />
+    <Compile Include="ADAL.NET\AuthenticationResult.cs" />
+    <Compile Include="ADAL.NET\ClientAssertion.cs" />
+    <Compile Include="ADAL.NET\ClientAssertionCertificate.cs" />
+    <Compile Include="ADAL.NET\ClientCredential.cs" />
+    <Compile Include="ADAL.NET\ClientKey.cs" />
+    <Compile Include="ADAL.NET\CryptographyHelper.cs" />
+    <Compile Include="ADAL.NET\DotNetEncodingHelper.cs" />
+    <Compile Include="ADAL.NET\JsonWebToken.cs" />
+    <Compile Include="ADAL.NET\JsonWebTokenConstants.cs" />
+    <Compile Include="ADAL.NET\Logger.cs" />
+    <Compile Include="ADAL.NET\PlatformSpecificHelper.cs" />
+    <Compile Include="ADAL.NET\RequestParameters.cs" />
+    <Compile Include="ADAL.NET\StaTaskScheduler.cs" />
+    <Compile Include="ADAL.NET\UserCredential.cs" />
+    <Compile Include="ADAL.NET\Web\IWebUI.cs" />
+    <Compile Include="ADAL.NET\Web\IWebUIFactory.cs" />
+    <Compile Include="ADAL.NET\Web\WebUIFactory.cs" />
     <Compile Include="AuthConfigSource.cs" />
     <Compile Include="GetSPListInfoActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +150,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\ADAL.NET\ADAL.NET.csproj">
-      <Project>{344519D6-C690-4B41-8802-9CB51359D965}</Project>
-      <Name>ADAL.NET</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

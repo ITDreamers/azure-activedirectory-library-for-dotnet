@@ -55,6 +55,15 @@ namespace D365CrmExtensions
             SharePointServerUri = sharePointServerUrl;
         }
 
+        public AuthConfig(string tenantId, Uri sharePointServerUrl, Guid clientId, string userName, string userPassword)
+        {
+            _tenantId = tenantId;
+
+            ClientId = clientId;
+            Credentials = new UserCredential(userName, userPassword);
+            SharePointServerUri = sharePointServerUrl;
+        }
+
         /// <summary>
         /// The value in the path of the request can be used to control who can sign into the application.
         /// The allowed values are tenant identifiers, for example, 8eaef023-2b34-4da1-9baa-8bc8c9d6a490 or
