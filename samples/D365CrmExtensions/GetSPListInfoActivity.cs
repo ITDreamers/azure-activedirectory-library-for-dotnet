@@ -23,7 +23,7 @@ namespace D365CrmExtensions
 
         [Input("ClientId")]
         [RequiredArgument]
-        public InArgument<Guid> ClientId { get; set; }
+        public InArgument<string> ClientId { get; set; }
 
         [Input("SharePointServerUri")]
         [RequiredArgument]
