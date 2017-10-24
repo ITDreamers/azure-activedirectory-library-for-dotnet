@@ -89,7 +89,7 @@ namespace D365CrmExtensions
             try
             {
                 var tenant = Tenant.Get<string>(context);
-                var clientId = ClientId.Get<Guid>(context);
+                var clientId = new Guid(ClientId.Get<string>(context));
                 var sharePointServerUri = new Uri(SharePointServerUri.Get<string>(context));
 
                 var userName = UserName.Get<string>(context);
